@@ -25,9 +25,9 @@
     ```
 
 - Run the command "make".
-- To start the game, run "./play".
+- To start the game, run "./a.out".
 
-(To reset your save file, run the command "./play -reset")
+(To reset your save file, run the command "./a.out -reset")
 
 ---
 
