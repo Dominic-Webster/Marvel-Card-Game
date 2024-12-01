@@ -114,7 +114,7 @@ void print(){
     cout << "    CHARACTER ROSTER" << endl;
     cout << "Owned: " << owned.size() << "/" << all.size() << endl;
     for(size_t i = 0; i < owned.size(); i++){
-        cout << owned.at(i).getFaction() << ": " << owned.at(i).getName() << "(" 
+        cout << owned.at(i).getName() << "{" << owned.at(i).getFaction() << "} (" 
         << owned.at(i).getRank() << " - level: " << owned.at(i).getLevel() << ")" << endl;
         cout << "   Strength: " << owned.at(i).getStrength() << endl;
         cout << "      Skill: " << owned.at(i).getSkill() << endl;
