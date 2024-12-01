@@ -50,23 +50,23 @@
 
  There are multiple factions in this game, each with unique characters. The roster will continue to grow as the game goes on and more characters are released.
 
-  Asgard:
+Asgard:
 - Loki
 - Thor
 
-  Avengers:
+Avengers:
 - Captain America
 - Iron Man
 
-  Gamma:
+Gamma:
 - Hulk
 
-  Pym:
+Pym:
 - Ant-Man
 
-  S.H.E.I.L.D.:
+S.H.E.I.L.D.:
 - Black Widow
 - Hawkeye
 
-  Wakanda:
+Wakanda:
 - Black Panther
