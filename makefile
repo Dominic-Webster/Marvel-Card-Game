@@ -1,9 +1,6 @@
 CC = g++
 CFLAGS = -g -Wall -std=c++11
 
-play: a.out
-	$(CC) $(CFLAGS) a.out -o play
-
 a.out: card.h marvel_card.o card.o
 	$(CC) $(CFLAGS) marvel_card.o card.o -o a.out
 
