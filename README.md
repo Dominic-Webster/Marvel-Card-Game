@@ -1,2 +1,15 @@
-# Marvel-Card-Game
-This is a test project game
+## MARVEL CARD GAME
+
+### (Version 1.0)
+
+---
+
+### Marvel Card Game
+
+---
+
+### How To Play
+
+---
+
+### Characters
