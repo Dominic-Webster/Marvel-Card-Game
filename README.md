@@ -79,7 +79,7 @@ Wakanda:
 12/02/2024
 - Quality of Life: Added intro for new players
 
-####  
+_______________________________________
 
 #### GAME RELEASE (Version 1.0)
 12/01/2024
