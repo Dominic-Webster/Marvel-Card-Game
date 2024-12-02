@@ -115,7 +115,7 @@ void print(){
     cout << "    CHARACTER ROSTER" << endl;
     cout << "Owned: " << owned.size() << "/" << all.size() << endl << endl;
     for(size_t i = 0; i < owned.size(); i++){
-        cout << owned.at(i).getName() << "{" << owned.at(i).getFaction() << "} (" 
+        cout << owned.at(i).getName() << " {" << owned.at(i).getFaction() << "} (" 
         << owned.at(i).getRank() << " - level: " << owned.at(i).getLevel() << ")" << endl;
         cout << "   Strength: " << owned.at(i).getStrength() << endl;
         cout << "      Skill: " << owned.at(i).getSkill() << endl;
@@ -180,7 +180,7 @@ void battle_menu(){
     cout << "    BATTLE" << endl;
     for(size_t i = 0; i < battle.size(); i++){ //prints options
         cout << " (" << (i)+1 << "): Fight " << battle.at(i).getName()
-        << "- [" << battle.at(i).getFaction() << "] - {Reward: "
+        << " - [" << battle.at(i).getFaction() << "] - {Reward: "
         << battle.at(i).getCoins() << " coins}" << endl;
     }
     cout << " (" << battle.size()+1 << "): [Menu]" << endl;
@@ -230,7 +230,7 @@ void fight(Battle b1){
     else if(options.at(x-1).getLevel() > 24){hero+=2;}
     else if(options.at(x-1).getLevel() > 9){hero++;}
 
-    cout << options.at(x-1).getName() << "vs " << b1.getName() << endl;
+    cout << options.at(x-1).getName() << " vs " << b1.getName() << endl;
     if(hero == enemy){ //determine outcome (draw)
         COINS += (b1.getCoins() / 2);
         cout << " Results: Draw" << endl;
@@ -268,7 +268,7 @@ void getHero(){
 
     if(tester != 1){ //while no duplicates
         owned.push_back(c1); //add to rsoter
-        cout << " - Unlocked: " << c1.getName() << "{" << c1.getFaction() << "}" << endl;
+        cout << " - Unlocked: " << c1.getName() << " {" << c1.getFaction() << "}" << endl;
         cout << endl;
     }
     updateFile();
