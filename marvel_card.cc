@@ -62,7 +62,7 @@ int main(int argc, char const *argv[]){
     while(!infile.eof()){
         stringstream s(temp);
         getline(s, name, '|');
-        getline(s, faction, '|'};
+        getline(s, faction, '|');
         s >> coin >> waste >> str >> waste >> skl >> waste >> spd;
         Battle b1(name, faction, stoi(coin), stoi(str), stoi(skl), stoi(spd));
         battle.push_back(b1);
