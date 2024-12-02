@@ -203,7 +203,7 @@ void fight(Battle b1){
     cout << "     FIGHT" << endl;
     cout << "Select Your Champion [Opposed stat: " << opp << "]" << endl;
     for(size_t i = 0; i < owned.size(); i++){ //gives options from roster
-        if(owned.at(i).getFaction() == b1.getFaction() || b1.getFaction() == "ALL"){
+        if(owned.at(i).getFaction() == b1.getFaction() || b1.getFaction() == "ALL" || b1.getFaction() == owned.at(i).getName()){
             options.push_back(owned.at(i));
         }
     }
