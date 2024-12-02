@@ -1,8 +1,8 @@
-Street Criminal | ALL | 50 | 8 | 8 | 8
-Hydra Agent | Avenger | 100 | 12 | 13 | 10
-Yellowjacket | Pym | 100 | 18 | 12 | 11
-Mandarin | Iron Man | 150 | 12 | 14 | 20
-A.I.M. Agent | S.H.I.E.L.D. | 150 | 17 | 14 | 16
-Kilmonger | Wakanda | 200 | 20 | 25 | 23
-Hela | Asgard | 300 | 25 | 25 | 30
-Thanos | ALL | 1500 | 75 | 50 | 50
+Street Criminal |ALL| 50 | 8 | 8 | 8
+Hydra Agent |Avenger| 100 | 12 | 13 | 10
+Yellowjacket |Pym| 100 | 18 | 12 | 11
+Mandarin |Iron Man| 150 | 12 | 14 | 20
+A.I.M. Agent |S.H.I.E.L.D.| 150 | 17 | 14 | 16
+Kilmonger |Wakanda| 200 | 20 | 25 | 23
+Hela |Asgard| 300 | 25 | 25 | 30
+Thanos |ALL| 1500 | 75 | 50 | 50
