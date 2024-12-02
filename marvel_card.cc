@@ -9,6 +9,7 @@ using namespace std;
 
 void menu(); //main menu
 void battle_menu();
+void welcome(); //for new game intro
 void fight(Battle b1); //runs a battle
 void store();
 void getHero(); //unlock
@@ -88,6 +89,11 @@ int main(int argc, char const *argv[]){
         exit(0);
     }
     system("clear");
+
+    if(owned.size() == 0){ //welcome message
+        welcome();
+    }
+    
     menu(); //start game
 
     return 0;
@@ -298,4 +304,28 @@ void updateFile(){
         << all.at(i).getSpeed() << endl;
     }
     outfile.close();
+}
+
+void welcome(){
+    int x;
+    cout << "Welcome to the Marvel Card Game!" << endl;
+    cout << " - Collect Classic Characters" << endl;
+    cout << " - Battle Epic Enemies" << endl;
+    cout << " - Level Up Your Roster" << endl;
+    cout << endl << " (1): Next" << endl;
+    cin >> x;
+    system("clear");
+    cout << "Currently, your roster is empty" << endl;
+    cout << "You have been given 100 coins to start your journey" << endl;
+    cout << "When you reach the menu, head to the shop" << endl;
+    cout << "You can buy a Common Pack to unlock your first character" << endl;
+    cout << endl << " (1): Next" << endl;
+    cin >> x;
+    system("clear");
+    cout << "Next, head to the Battle Menu, and select your first fight" << endl;
+    cout << "Continue to battle, unlock characters, and upgrade your roster" << endl;
+    cout << "Good luck!" << endl;
+    cout << endl << "(1): Begin Game" << endl;
+    cin >> x;
+    system("clear");
 }
