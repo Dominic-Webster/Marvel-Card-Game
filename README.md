@@ -1,6 +1,6 @@
 ## MARVEL CARD GAME
 
-### (Version 1.0)
+### (Version 1.0.1)
 
 ---
 
@@ -70,3 +70,19 @@ S.H.E.I.L.D.:
 
 Wakanda:
 - Black Panther
+
+---
+
+### Update History
+
+Game Release (Version 1.0)
+12/01/2024
+- Base Game: Roster, Battles, Store
+- Roster: 9 Characters
+- Battles: 8 Battles
+- Store: Common, Uncommon, and Rare Packs
+- Stats: Strength, Skill, and Speed
+
+Update 1.0.1
+12/02/20204
+- Quality of Life: Added intro for new players
