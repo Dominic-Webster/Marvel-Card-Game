@@ -76,7 +76,7 @@ Wakanda:
 ### Update History
 
 Game Release (Version 1.0)
-12/01/2024
+{12/01/2024}
 - Base Game: Roster, Battles, Store
 - Roster: 9 Characters
 - Battles: 8 Battles
@@ -84,5 +84,5 @@ Game Release (Version 1.0)
 - Stats: Strength, Skill, and Speed
 
 Update 1.0.1
-12/02/20204
+{12/02/20204}
 - Quality of Life: Added intro for new players
