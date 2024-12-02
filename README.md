@@ -75,6 +75,10 @@ Wakanda:
 
 ### Update History
 
+UPDATE 1.0.1
+{12/02/20204}
+- Quality of Life: Added intro for new players
+
 GAME RELEASE (Version 1.0)
 {12/01/2024}
 - Base Game: Roster, Battles, Store
@@ -82,7 +86,3 @@ GAME RELEASE (Version 1.0)
 - Battles: 8 Battles
 - Store: Common, Uncommon, and Rare Packs
 - Stats: Strength, Skill, and Speed
-
-UPDATE 1.0.1
-{12/02/20204}
-- Quality of Life: Added intro for new players
