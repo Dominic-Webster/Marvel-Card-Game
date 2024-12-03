@@ -1,6 +1,6 @@
 ## MARVEL CARD GAME
 
-### (Version 1.0.1)
+### (Version 1.0.2)
 
 ---
 
@@ -74,6 +74,13 @@ Wakanda:
 ---
 
 ### Update History
+
+#### UPDATE 1.0.2
+12/03/2024
+- Roster: Added She-Hulk
+- Battles: Added Winter Soldier and Ultron
+
+#### _______________________________________
 
 #### UPDATE 1.0.1
 12/02/2024
