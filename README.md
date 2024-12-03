@@ -60,6 +60,7 @@ Avengers:
 
 Gamma:
 - Hulk
+- She-Hulk
 
 Pym:
 - Ant-Man
