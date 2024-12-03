@@ -12,3 +12,4 @@ Black Widow| Common | S.H.I.E.L.D. | 1 | 6 | 20 | 10
 Loki| Common | Asgard | 1 | 13 | 11 | 15
 Ant-Man| Common | Pym | 1 | 15 | 14 | 14
 She-Hulk| Common | Gamma | 1 | 18 | 11 | 15
+Spider-Man| Common | Spiderverse | 1 | 17 | 14 | 13
