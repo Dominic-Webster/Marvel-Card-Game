@@ -78,7 +78,7 @@ Wakanda:
 #### UPDATE 1.0.2
 12/03/2024
 - Roster: Added She-Hulk
-- Battles: Added Winter Soldier and Ultron
+- Battles: Added Winter Soldier, Abomination, and Ultron
 
 #### _______________________________________
 
