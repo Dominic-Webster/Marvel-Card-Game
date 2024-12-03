@@ -1,6 +1,6 @@
 ## MARVEL CARD GAME
 
-### (Version 1.0.2)
+### (Version 1.0.3)
 
 ---
 
@@ -69,12 +69,22 @@ S.H.E.I.L.D.:
 - Black Widow
 - Hawkeye
 
+Spiderverse:
+- Spider-Man
+
 Wakanda:
 - Black Panther
 
 ---
 
 ### Update History
+
+#### UPDATE 1.0.3
+12/03/2024
+- Roster: Added Spider-Man
+- Battles: Added Green Goblin
+
+#### _______________________________________
 
 #### UPDATE 1.0.2
 12/03/2024
