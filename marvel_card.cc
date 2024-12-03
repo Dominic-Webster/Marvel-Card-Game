@@ -138,9 +138,9 @@ void store(){
     int x;
     cout << "    STORE" << endl;
     cout << "Coins: " << COINS << endl;
-    cout << " (1): Common Pack {100 coins}" << endl;
-    cout << " (2): Uncommon Pack {400 coins}" << endl; //x5
-    cout << " (3): Rare Pack {1000 coins}" << endl; //x15
+    cout << " (1): Common Pack (x1) {100 coins}" << endl;
+    cout << " (2): Uncommon Pack (x5) {400 coins}" << endl; //x5
+    cout << " (3): Rare Pack (x15) {1000 coins}" << endl; //x15
     cout << " (4): [Menu]" << endl;
     cin >> x;
     system("clear");
