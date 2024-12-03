@@ -87,9 +87,9 @@ void Card::levelUp(){
 
     int x;
     cout << "Select a stat to increase for " << name << endl; //stat increase choice
-    cout << "(1) Strength [" << strength << "]" << endl
-     << "(2) Skill [" << skill << "]" << endl 
-     << "(3) Speed [" << speed << "]" << endl;
+    cout << "(1) Strength +1 [" << strength << "]" << endl
+     << "(2) Skill +1 [" << skill << "]" << endl 
+     << "(3) Speed +1 [" << speed << "]" << endl;
     cin >> x;
     system("clear");
     if(x == 1){strength++;}
