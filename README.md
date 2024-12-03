@@ -79,6 +79,7 @@ Wakanda:
 12/03/2024
 - Roster: Added She-Hulk
 - Battles: Added Winter Soldier, Abomination, and Ultron
+- Quality of Life: Store interface is more user friendly
 
 #### _______________________________________
 
