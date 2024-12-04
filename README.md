@@ -83,6 +83,8 @@ Wakanda:
 12/03/2024
 - Store: Added Mythic Pack
 
+#### _______________________________________
+
 #### UPDATE 1.0.3
 12/03/2024
 - Roster: Added Spider-Man
