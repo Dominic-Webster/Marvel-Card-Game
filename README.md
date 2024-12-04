@@ -1,6 +1,6 @@
 ## MARVEL CARD GAME
 
-### (Version 1.0.3)
+### (Version 1.0.4)
 
 ---
 
@@ -78,6 +78,10 @@ Wakanda:
 ---
 
 ### Update History
+
+#### UPDATE 1.0.4
+12/03/2024
+- Store: Added Mythic Pack
 
 #### UPDATE 1.0.3
 12/03/2024

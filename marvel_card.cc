@@ -141,7 +141,8 @@ void store(){
     cout << " (1): Common Pack (x1) {100 coins}" << endl;
     cout << " (2): Uncommon Pack (x5) {400 coins}" << endl; //x5
     cout << " (3): Rare Pack (x15) {1000 coins}" << endl; //x15
-    cout << " (4): [Menu]" << endl;
+    cout << " (4): Mythic Pack (x20) {1300 coins}" << endl; //x20
+    cout << " (5): [Menu]" << endl;
     cin >> x;
     system("clear");
 
@@ -175,6 +176,17 @@ void store(){
         else{
             COINS -= 1000;
             for(int i = 0; i < 15; i++){getHero();} //unlock x15
+            store();
+        }
+    }
+    else if(x == 4){
+        if(COINS < 1300){
+            cout << "Not enough coins" << endl << endl;
+            store();
+        }
+        else{
+            COINS -= 1300;
+            for(int i = 0; i < 20; i++){getHero();} //unlock x15
             store();
         }
     }
