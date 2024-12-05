@@ -27,9 +27,9 @@
 - Run the command "make".
 - To start the game, run "./play".
 
-(To reset your save file, run the command "./play -reset")
-(To save a file, run "./play -save")
-(To access a previous save, run "./play -open_save")
+##### (To reset your save file, run the command "./play -reset")
+##### (To save a file, run "./play -save")
+##### (To access a previous save, run "./play -open_save")
 
 ---
 
