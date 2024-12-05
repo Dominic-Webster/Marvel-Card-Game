@@ -30,7 +30,7 @@ int main(int argc, char const *argv[]){
         exit(0);
     }
 
-    string temp, waste, name, level, rank, faction, str, spd, skl, tc, coin;
+    string temp, waste, name, level, rank, faction, str, spd, skl, tc, my, coin;
     int filled;
     infile >> temp >> waste;
     COINS = stoi(waste);
@@ -41,8 +41,8 @@ int main(int argc, char const *argv[]){
         stringstream s(temp);
         getline(s, name, '|');
         s >> rank >> waste >> faction >> waste >> level 
-        >> waste >> str >> waste >> skl >> waste >> spd >> waste >> tc;
-        Card c1(name, rank, faction, stoi(level), stoi(str), stoi(skl), stoi(spd), stoi(tc));
+        >> waste >> str >> waste >> skl >> waste >> spd >> waste >> tc >> waste >> my;
+        Card c1(name, rank, faction, stoi(level), stoi(str), stoi(skl), stoi(spd), stoi(tc), stoi(my));
         owned.push_back(c1);
         getline(infile, temp);
     }
@@ -52,8 +52,8 @@ int main(int argc, char const *argv[]){
         stringstream s(temp);
         getline(s, name, '|');
         s >> rank >> waste >> faction >> waste >> level >> waste 
-        >> str >> waste >> skl >> waste >> spd >> waste >> tc;
-        Card c1(name, rank, faction, stoi(level), stoi(str), stoi(skl), stoi(spd), stoi(tc));
+        >> str >> waste >> skl >> waste >> spd >> waste >> tc >> waste >> my;
+        Card c1(name, rank, faction, stoi(level), stoi(str), stoi(skl), stoi(spd), stoi(tc), stoi(my));
         all.push_back(c1);
         getline(infile, temp);
     }
@@ -80,8 +80,8 @@ int main(int argc, char const *argv[]){
         stringstream s(temp);
         getline(s, name, '|');
         getline(s, faction, '|');
-        s >> coin >> waste >> str >> waste >> skl >> waste >> spd >> waste >> tc;
-        Battle b1(name, faction, stoi(coin), stoi(str), stoi(skl), stoi(spd), stoi(tc));
+        s >> coin >> waste >> str >> waste >> skl >> waste >> spd >> waste >> tc >> waste >> my;
+        Battle b1(name, faction, stoi(coin), stoi(str), stoi(skl), stoi(spd), stoi(tc), stoi(my));
         battle.push_back(b1);
         getline(infile, temp);
     }
@@ -153,7 +153,7 @@ void menu(){
 }
 
 void print(){
-    cout << "    - CHARACTER ROSTER -" << endl;
+    cout << "    - CHARACTER ROSTER -" << endl << endl;
     cout << "Owned: " << owned.size() << "/" << all.size() << endl << endl;
 
     for(size_t j = 0; j < factions.size(); j++){
@@ -165,7 +165,8 @@ void print(){
                 cout << "     Strength: " << owned.at(i).getStrength() << endl;
                 cout << "        Skill: " << owned.at(i).getSkill() << endl;
                 cout << "        Speed: " << owned.at(i).getSpeed() << endl;
-                cout << "         Tech: " << owned.at(i).getTech() << endl << endl;
+                cout << "         Tech: " << owned.at(i).getTech() << endl;
+                cout << "       Mystic: " << owned.at(i).getMystic() << endl;
             }
         }
         cout << "--------------------" << endl;
@@ -173,7 +174,7 @@ void print(){
 
     
     int x;
-    cout << " (1): [Menu]" << endl;
+    cout << endl << " (1): [Menu]" << endl;
     cin >> x;
     system("clear");
     menu();
@@ -263,14 +264,15 @@ void battle_menu(){
 }
 
 void fight(Battle b1){
-    int stat = rand()%4, hero, enemy, z;
+    int stat = rand()%5, hero, enemy, z;
     size_t x;
     vector <Card> options;
     string opp;
     if(stat == 0){opp = "Strength";} //determine opposing stat
     else if(stat == 1){opp = "Skill";}
     else if(stat == 2){opp = "Speed";}
-    else{opp = "Tech";}
+    else if(stat == 3){opp = "Tech";}
+    else{opp = "Mystic";}
 
     do{ //runs until valid input is given
     cout << "     - FIGHT -" << endl;
@@ -291,13 +293,15 @@ void fight(Battle b1){
     if(x == options.size() + 1){battle_menu();} //return to battle menu
 
     if(stat == 0){enemy = rand() % b1.getStr();
-        hero = rand() % options.at(x-1).getStrength();} //get stats (variable)
+        hero = rand() % options.at(x-1).getStrength();} //get stats (varies)
     else if(stat == 1){enemy = rand() % b1.getSkill();
         hero = rand() % options.at(x-1).getSkill();}
     else if(stat == 2){enemy = rand() % b1.getSpeed();
         hero = rand() % options.at(x-1).getSpeed();}
-    else{enemy = rand() % b1.getTech();
+    else if(stat == 3){enemy = rand() % b1.getTech();
         hero = rand() % options.at(x-1).getTech();}
+    else {enemy = rand() % b1.getMystic();
+        hero = rand() % options.at(x-1).getMystic();}
 
     if(options.at(x-1).getLevel() > 99){hero+=10;}
     else if(options.at(x-1).getLevel() > 49){hero+=5;}
@@ -330,7 +334,7 @@ void getHero(){
     int x = rand() % all.size(), tester = 0; //x is a random numbered unlock, tester checks for duplicates
     Card c1(all.at(x).getName(), all.at(x).getRank(),
     all.at(x).getFaction(), all.at(x).getLevel(), all.at(x).getStrength(),
-    all.at(x).getSkill(), all.at(x).getSpeed(), all.at(x).getTech()); //make new card from all list
+    all.at(x).getSkill(), all.at(x).getSpeed(), all.at(x).getTech(), all.at(x).getMystic()); //make new card from all list
 
     for(size_t i = 0; i < owned.size(); i++){ //checks for duplicates
         if(c1 == owned.at(i)){
@@ -367,14 +371,16 @@ void updateFile(){
         outfile << owned.at(i).getName() << "| " << owned.at(i).getRank() << " | "
         << owned.at(i).getFaction() << " | " << owned.at(i).getLevel() << " | "
         << owned.at(i).getStrength() << " | " << owned.at(i).getSkill() << " | "
-        << owned.at(i).getSpeed() << " | " << owned.at(i).getTech() << endl;
+        << owned.at(i).getSpeed() << " | " << owned.at(i).getTech() << " | "
+        << owned.at(i).getMystic() << endl;
     }
     outfile << "-------" << endl << "ALL" << endl; //every base character
     for(size_t i = 0; i < all.size(); i++){
         outfile << all.at(i).getName() << "| " << all.at(i).getRank() << " | "
         << all.at(i).getFaction() << " | " << all.at(i).getLevel() << " | "
         << all.at(i).getStrength() << " | " << all.at(i).getSkill() << " | "
-        << all.at(i).getSpeed() << " | " << all.at(i).getTech() << endl;
+        << all.at(i).getSpeed() << " | " << all.at(i).getTech() << " | "
+        << all.at(i).getMystic() << endl;
     }
     outfile.close();
 }

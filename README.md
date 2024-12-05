@@ -1,6 +1,6 @@
 ## MARVEL CARD GAME
 
-### (Version 1.1.1)
+### (Version 1.1.2)
 
 ---
 
@@ -42,7 +42,7 @@
  Now let's test your character out in battle!
 
 - Head to the battle page, and select a fight (note: not all fights will be available. Choose a fight your character has access to).
-- Every battle challenges one of three stats: Strength, Skill, or Speed. In future battles, select your character wisely.
+- Every battle challenges one of five stats: Strength, Skill, Speed, Tech, or Mystic. In future battles, select your character wisely.
 
  After a few battles, you should have enough coins to unlock more characters! Continue to fight and level up, and soon you'll be able to take on any challenge that comes yoour way!
 
@@ -59,6 +59,9 @@ Asgard:
 Avengers:
 - Captain America
 - Iron Man
+
+Convocation:
+- Doctor Strange
 
 Gamma:
 - Hulk
@@ -82,6 +85,14 @@ Wakanda:
 ---
 
 ### Update History
+
+#### UPDATE 1.1.2
+12/05/2024
+- Gameplay: Added new stat: Mystic
+- Roster: Added Doctor Strange
+- Battles: Added Mordo
+
+#### _______________________________________
 
 #### UPDATE 1.1.1
 12/05/2024

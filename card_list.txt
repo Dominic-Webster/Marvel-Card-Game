@@ -1,17 +1,22 @@
-Coins: 100
+Coins: 0
 OWNED
+Shuri| Common | Wakanda | 2 | 6 | 14 | 9 | 19 | 10
+Captain America| Common | Avenger | 3 | 19 | 10 | 14 | 10 | 8
+She-Hulk| Common | Gamma | 2 | 19 | 11 | 15 | 2 | 9
+Thor| Common | Asgard | 1 | 19 | 4 | 17 | 4 | 15
 -------
 ALL
-Iron Man| Common | Avenger | 1 | 13 | 12 | 15 | 18
-Black Panther| Common | Wakanda | 1 | 17 | 8 | 13 | 12
-Hawkeye| Common | S.H.I.E.L.D. | 1 | 7 | 19 | 9 | 16
-Hulk| Common | Gamma | 1 | 20 | 2 | 15 | 1
-Thor| Common | Asgard | 1 | 19 | 4 | 17 | 4
-Captain America| Common | Avenger | 1 | 17 | 10 | 14 | 10
-Black Widow| Common | S.H.I.E.L.D. | 1 | 6 | 20 | 10 | 15
-Loki| Common | Asgard | 1 | 13 | 11 | 15 | 5
-Ant-Man| Common | Pym | 1 | 15 | 14 | 14 | 18
-She-Hulk| Common | Gamma | 1 | 18 | 11 | 15 | 2
-Spider-Man| Common | Spiderverse | 1 | 17 | 14 | 13 | 12
-Shuri| Common | Wakanda | 1 | 6 | 14 | 8 | 19
-War Machine| Common | S.H.I.E.L.D. | 1 | 15 | 12 | 13 | 16
+Iron Man| Common | Avenger | 1 | 13 | 12 | 15 | 18 | 6
+Black Panther| Common | Wakanda | 1 | 17 | 8 | 13 | 12 | 9
+Hawkeye| Common | S.H.I.E.L.D. | 1 | 7 | 19 | 9 | 16 | 3
+Hulk| Common | Gamma | 1 | 20 | 2 | 15 | 1 | 8
+Thor| Common | Asgard | 1 | 19 | 4 | 17 | 4 | 15
+Captain America| Common | Avenger | 1 | 17 | 10 | 14 | 10 | 8
+Black Widow| Common | S.H.I.E.L.D. | 1 | 6 | 20 | 10 | 15 | 7
+Loki| Common | Asgard | 1 | 13 | 11 | 15 | 5 | 18
+Ant-Man| Common | Pym | 1 | 15 | 14 | 14 | 18 | 3
+She-Hulk| Common | Gamma | 1 | 18 | 11 | 15 | 2 | 9
+Spider-Man| Common | Spiderverse | 1 | 17 | 14 | 13 | 12 | 5
+Shuri| Common | Wakanda | 1 | 6 | 14 | 8 | 19 | 10
+War Machine| Common | S.H.I.E.L.D. | 1 | 15 | 12 | 13 | 16 | 3
+Doctor Strange| Common | Convocation | 1 | 7 | 16 | 18 | 11 | 20
