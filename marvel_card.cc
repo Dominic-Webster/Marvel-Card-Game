@@ -19,6 +19,7 @@ void saveFile();
 void swapSave();
 int COINS;
 vector <Card> owned, all;
+vector <string> factions = {"Asgard", "Avenger", "Gamma", "Pym", "S.H.I.E.L.D.", "Spiderverse", "Wakanda"};
 vector <Battle> battle;
 
 int main(int argc, char const *argv[]){
@@ -36,7 +37,7 @@ int main(int argc, char const *argv[]){
     getline(infile, temp);
     getline(infile, temp);
     getline(infile, temp);
-    while(temp != "-------"){
+    while(temp != "-------"){ //gets owned
         stringstream s(temp);
         getline(s, name, '|');
         s >> rank >> waste >> faction >> waste >> level 
@@ -47,7 +48,7 @@ int main(int argc, char const *argv[]){
     }
     getline(infile, temp);
     getline(infile, temp);
-    while(!infile.eof()){
+    while(!infile.eof()){ //gets all
         stringstream s(temp);
         getline(s, name, '|');
         s >> rank >> waste >> faction >> waste >> level >> waste 
@@ -136,22 +137,32 @@ void menu(){
     if(x == "1"){print();}
     else if(x == "2"){battle_menu();}
     else if(x == "3"){store();}
-    else{exit(0);}
+    else if(x == "4"){exit(0);}
+    else{menu();}
 }
 
 void print(){
     cout << "    CHARACTER ROSTER" << endl;
     cout << "Owned: " << owned.size() << "/" << all.size() << endl << endl;
-    for(size_t i = 0; i < owned.size(); i++){
-        cout << owned.at(i).getName() << " {" << owned.at(i).getFaction() << "} (" 
-        << owned.at(i).getRank() << " - level: " << owned.at(i).getLevel() << ")" << endl;
-        cout << "   Strength: " << owned.at(i).getStrength() << endl;
-        cout << "      Skill: " << owned.at(i).getSkill() << endl;
-        cout << "      Speed: " << owned.at(i).getSpeed() << endl;
-        cout << "       Tech: " << owned.at(i).getTech() << endl;
+
+    for(size_t j = 0; j < factions.size(); j++){
+        cout << "  {" << factions.at(j) << "}" << endl;
+        for(size_t i = 0; i < owned.size(); i++){
+            if(owned.at(i).getFaction() == factions.at(j)){
+                cout << " - " << owned.at(i).getName() << " (" << owned.at(i).getRank() 
+                << " - level: " << owned.at(i).getLevel() << ")" << endl;
+                cout << "     Strength: " << owned.at(i).getStrength() << endl;
+                cout << "        Skill: " << owned.at(i).getSkill() << endl;
+                cout << "        Speed: " << owned.at(i).getSpeed() << endl;
+                cout << "         Tech: " << owned.at(i).getTech() << endl << endl;
+            }
+        }
+        cout << "--------------------" << endl;
     }
+
+    
     int x;
-    cout << endl << " (1): [Menu]" << endl;
+    cout << " (1): [Menu]" << endl;
     cin >> x;
     system("clear");
     menu();
