@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 
 #ifndef CARD
@@ -50,6 +51,7 @@ class Battle{
         int getSkill();
         int getSpeed();
         int getTech();
+        bool battle_good(vector <Card> owned);
     private:
         string name, faction;
         int coins, strength, skill, speed, tech;

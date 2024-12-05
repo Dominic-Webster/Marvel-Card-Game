@@ -1,5 +1,4 @@
 #include "card.h"
-#include <vector>
 #include <fstream>
 #include <iostream>
 #include <sstream>
@@ -19,7 +18,7 @@ void saveFile();
 void swapSave();
 int COINS;
 vector <Card> owned, all;
-vector <string> factions = {"Asgard", "Avenger", "Gamma", "Pym", "S.H.I.E.L.D.", "Spiderverse", "Wakanda"};
+vector <string> factions; 
 vector <Battle> battle;
 
 int main(int argc, char const *argv[]){
@@ -32,6 +31,7 @@ int main(int argc, char const *argv[]){
     }
 
     string temp, waste, name, level, rank, faction, str, spd, skl, tc, coin;
+    int filled;
     infile >> temp >> waste;
     COINS = stoi(waste);
     getline(infile, temp);
@@ -58,6 +58,17 @@ int main(int argc, char const *argv[]){
         getline(infile, temp);
     }
     infile.close();
+
+    for(size_t i = 0; i < owned.size(); i++){
+        filled = 0;
+        for(size_t j = 0; j < factions.size(); j++){
+            if(owned.at(i).getFaction() == factions.at(j)){
+                filled = 1;
+                j = factions.size();
+            }
+        }
+        if(filled == 0){factions.push_back(owned.at(i).getFaction());}
+    }
 
     infile.open("battle.txt"); //for battle list
     if(infile.fail()){
@@ -229,20 +240,25 @@ void store(){
 
 void battle_menu(){
     size_t x;
-    string space;
+    int good = 0;
     cout << "    - BATTLE -" << endl << endl;
     for(size_t i = 0; i < battle.size(); i++){ //prints options
-        if((i)%2 == 0){space = "";}
-        else{space = " ";}
-        cout << space << " (" << (i)+1 << "): Fight " << battle.at(i).getName()
-        << " - [" << battle.at(i).getFaction() << "] - {Reward: "
+        for(size_t j = 0; j < factions.size(); j++){
+            if(battle.at(i).battle_good(owned) || battle.at(i).getFaction() == factions.at(j)){
+                good = 1;
+            }
+        }
+        if(good == 0){cout << "-Unavailable-";}
+        cout << " (" << (i+1) << "): Fight " << battle.at(i).getName()
+        << "- [" << battle.at(i).getFaction() << "] - {Reward: "
         << battle.at(i).getCoins() << " coins}" << endl << endl;
+        good = 0;
     }
     cout << endl << " (" << battle.size()+1 << "): [Menu]" << endl;
     cin >> x;
     system("clear");
 
-    if(x <= battle.size()){fight(battle.at(x-1));}
+    if(x < battle.size()+1){fight(battle.at(x-1));}
     else{menu();}
 }
 
@@ -325,8 +341,13 @@ void getHero(){
     }
 
     if(tester != 1){ //while no duplicates
+        int n = 0;
         owned.push_back(c1); //add to rsoter
         cout << " - Unlocked: " << c1.getName() << " {" << c1.getFaction() << "}" << endl;
+        for(size_t i = 0; i < factions.size(); i++){ //checks if faction needs added
+            if(c1.getFaction() == factions.at(i)){n = 1;
+                i = factions.size();}}
+        if(n == 0){factions.push_back(c1.getFaction());}
         cout << endl;
     }
     updateFile();

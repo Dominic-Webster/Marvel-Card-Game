@@ -188,3 +188,15 @@ int Battle::getSpeed(){
 int Battle::getTech(){
     return tech;
 }
+
+bool Battle::battle_good(vector <Card> owned){
+    if(faction == "ALL"){
+        return true;
+    }
+    for(size_t i = 0; i < owned.size(); i++){
+        if(faction == owned.at(i).getName()){
+            return true;
+        }
+    }
+    return false;
+}
