@@ -1,6 +1,6 @@
 ## MARVEL CARD GAME
 
-### (Version 1.1.0)
+### (Version 1.1.1)
 
 ---
 
@@ -82,6 +82,12 @@ Wakanda:
 ---
 
 ### Update History
+
+#### UPDATE 1.1.1
+12/05/2024
+- Quality of Life: Visual updates
+
+#### _______________________________________
 
 #### UPDATE 1.1.0
 12/04/2024
