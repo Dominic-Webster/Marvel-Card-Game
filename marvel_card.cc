@@ -124,9 +124,9 @@ int main(int argc, char const *argv[]){
 
 void menu(){
     string x;
-    cout << "    MENU" << endl;
+    cout << "    - MENU -" << endl << endl;
     cout << "Characters owned: " << owned.size() << endl;
-    cout << "Coins: " << COINS << endl;
+    cout << "Coins: " << COINS << endl << endl;
     cout << " (1): View Roster" << endl;
     cout << " (2): Battle" << endl;
     cout << " (3): Store" << endl;
@@ -142,7 +142,7 @@ void menu(){
 }
 
 void print(){
-    cout << "    CHARACTER ROSTER" << endl;
+    cout << "    - CHARACTER ROSTER -" << endl;
     cout << "Owned: " << owned.size() << "/" << all.size() << endl << endl;
 
     for(size_t j = 0; j < factions.size(); j++){
@@ -170,8 +170,8 @@ void print(){
 
 void store(){
     int x;
-    cout << "    STORE" << endl;
-    cout << "Coins: " << COINS << endl;
+    cout << "    - STORE -" << endl << endl;
+    cout << "Coins: " << COINS << endl << endl;
     cout << " (1): Common Pack (x1) {100 coins}" << endl;
     cout << " (2): Uncommon Pack (x5) {400 coins}" << endl; //x5
     cout << " (3): Rare Pack (x15) {1000 coins}" << endl; //x15
@@ -229,13 +229,16 @@ void store(){
 
 void battle_menu(){
     size_t x;
-    cout << "    BATTLE" << endl;
+    string space;
+    cout << "    - BATTLE -" << endl << endl;
     for(size_t i = 0; i < battle.size(); i++){ //prints options
-        cout << " (" << (i)+1 << "): Fight " << battle.at(i).getName()
+        if((i)%2 == 0){space = "";}
+        else{space = " ";}
+        cout << space << " (" << (i)+1 << "): Fight " << battle.at(i).getName()
         << " - [" << battle.at(i).getFaction() << "] - {Reward: "
-        << battle.at(i).getCoins() << " coins}" << endl;
+        << battle.at(i).getCoins() << " coins}" << endl << endl;
     }
-    cout << " (" << battle.size()+1 << "): [Menu]" << endl;
+    cout << endl << " (" << battle.size()+1 << "): [Menu]" << endl;
     cin >> x;
     system("clear");
 
@@ -254,7 +257,7 @@ void fight(Battle b1){
     else{opp = "Tech";}
 
     do{ //runs until valid input is given
-    cout << "     FIGHT" << endl;
+    cout << "     - FIGHT -" << endl;
     cout << "Select Your Champion [Opposed stat: " << opp << "]" << endl;
     for(size_t i = 0; i < owned.size(); i++){ //gives options from roster
         if(owned.at(i).getFaction() == b1.getFaction() || b1.getFaction() == "ALL" || b1.getFaction() == owned.at(i).getName()){
