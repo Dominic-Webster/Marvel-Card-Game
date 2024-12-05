@@ -45,6 +45,7 @@ int Card::getSpeed(){
 int Card::getTech(){
     return tech;
 }
+
 int Card::getMystic(){
     return mystic;
 }
@@ -109,7 +110,6 @@ Battle::Battle(string nm, string fc, int coin, int str, int skl, int spd, int tc
     tech = tc > 0 ? tc : 10;
     mystic = my > 0 ? my : 10;
 }
-
 
 string Battle::getFaction(){
     return faction;
