@@ -1,9 +1,5 @@
-Coins: 0
+Coins: 100
 OWNED
-Shuri| Common | Wakanda | 2 | 6 | 14 | 9 | 19 | 10
-Captain America| Common | Avenger | 3 | 19 | 10 | 14 | 10 | 8
-She-Hulk| Common | Gamma | 2 | 19 | 11 | 15 | 2 | 9
-Thor| Common | Asgard | 1 | 19 | 4 | 17 | 4 | 15
 -------
 ALL
 Iron Man| Common | Avenger | 1 | 13 | 12 | 15 | 18 | 6
