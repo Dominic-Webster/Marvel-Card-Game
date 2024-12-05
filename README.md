@@ -1,6 +1,6 @@
 ## MARVEL CARD GAME
 
-### (Version 1.0.4)
+### (Version 1.1.0)
 
 ---
 
@@ -68,16 +68,27 @@ Pym:
 S.H.E.I.L.D.:
 - Black Widow
 - Hawkeye
+- War Machine
 
 Spiderverse:
 - Spider-Man
 
 Wakanda:
 - Black Panther
+- Shuri
 
 ---
 
 ### Update History
+
+#### UPDATE 1.1.0
+12/04/2024
+- Gameplay: Added new stat: Tech
+- Roster: Added Shuri and War Machine
+- Battles: Added Vulture
+- Quality of Life: Save file option added
+
+#### _______________________________________
 
 #### UPDATE 1.0.4
 12/03/2024

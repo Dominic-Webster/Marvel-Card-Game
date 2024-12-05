@@ -15,6 +15,8 @@ void store();
 void getHero(); //unlock
 void print(); //show roster
 void updateFile();
+void saveFile();
+void swapSave();
 int COINS;
 vector <Card> owned, all;
 vector <Battle> battle;
@@ -28,7 +30,7 @@ int main(int argc, char const *argv[]){
         exit(0);
     }
 
-    string temp, waste, name, level, rank, faction, str, spd, skl, coin;
+    string temp, waste, name, level, rank, faction, str, spd, skl, tc, coin;
     infile >> temp >> waste;
     COINS = stoi(waste);
     getline(infile, temp);
@@ -37,8 +39,9 @@ int main(int argc, char const *argv[]){
     while(temp != "-------"){
         stringstream s(temp);
         getline(s, name, '|');
-        s >> rank >> waste >> faction >> waste >> level >> waste >> str >> waste >> skl >> waste >> spd;
-        Card c1(name, rank, faction, stoi(level), stoi(str), stoi(skl), stoi(spd));
+        s >> rank >> waste >> faction >> waste >> level 
+        >> waste >> str >> waste >> skl >> waste >> spd >> waste >> tc;
+        Card c1(name, rank, faction, stoi(level), stoi(str), stoi(skl), stoi(spd), stoi(tc));
         owned.push_back(c1);
         getline(infile, temp);
     }
@@ -47,8 +50,9 @@ int main(int argc, char const *argv[]){
     while(!infile.eof()){
         stringstream s(temp);
         getline(s, name, '|');
-        s >> rank >> waste >> faction >> waste >> level >> waste >> str >> waste >> skl >> waste >> spd;
-        Card c1(name, rank, faction, stoi(level), stoi(str), stoi(skl), stoi(spd));
+        s >> rank >> waste >> faction >> waste >> level >> waste 
+        >> str >> waste >> skl >> waste >> spd >> waste >> tc;
+        Card c1(name, rank, faction, stoi(level), stoi(str), stoi(skl), stoi(spd), stoi(tc));
         all.push_back(c1);
         getline(infile, temp);
     }
@@ -64,8 +68,8 @@ int main(int argc, char const *argv[]){
         stringstream s(temp);
         getline(s, name, '|');
         getline(s, faction, '|');
-        s >> coin >> waste >> str >> waste >> skl >> waste >> spd;
-        Battle b1(name, faction, stoi(coin), stoi(str), stoi(skl), stoi(spd));
+        s >> coin >> waste >> str >> waste >> skl >> waste >> spd >> waste >> tc;
+        Battle b1(name, faction, stoi(coin), stoi(str), stoi(skl), stoi(spd), stoi(tc));
         battle.push_back(b1);
         getline(infile, temp);
     }
@@ -87,6 +91,24 @@ int main(int argc, char const *argv[]){
         updateFile();
         cout << "1000 coins have been added to your account" << endl;
         exit(0);
+    }
+    if(command == "-save"){
+        cout << "This will overwrite anything in save file 1. Proceed? (y/n) " << endl;
+        cin >> waste;
+        if(waste == "y" || waste == "Y"){
+            saveFile();
+            exit(0);
+        }
+        else{exit(0);}
+    }
+    if(command == "-open_save"){
+        cout << "Proceed with swapping saves? (y/n) " << endl;
+        cin >> waste;
+        if(waste == "y" || waste == "Y"){
+            swapSave();
+            exit(0);
+        }
+        else{exit(0);}
     }
     system("clear");
 
@@ -126,6 +148,7 @@ void print(){
         cout << "   Strength: " << owned.at(i).getStrength() << endl;
         cout << "      Skill: " << owned.at(i).getSkill() << endl;
         cout << "      Speed: " << owned.at(i).getSpeed() << endl;
+        cout << "       Tech: " << owned.at(i).getTech() << endl;
     }
     int x;
     cout << endl << " (1): [Menu]" << endl;
@@ -210,13 +233,14 @@ void battle_menu(){
 }
 
 void fight(Battle b1){
-    int stat = rand()%3, hero, enemy, z;
+    int stat = rand()%4, hero, enemy, z;
     size_t x;
     vector <Card> options;
     string opp;
     if(stat == 0){opp = "Strength";} //determine opposing stat
     else if(stat == 1){opp = "Skill";}
-    else{opp = "Speed";}
+    else if(stat == 2){opp = "Speed";}
+    else{opp = "Tech";}
 
     do{ //runs until valid input is given
     cout << "     FIGHT" << endl;
@@ -240,8 +264,10 @@ void fight(Battle b1){
         hero = rand() % options.at(x-1).getStrength();} //get stats (variable)
     else if(stat == 1){enemy = rand() % b1.getSkill();
         hero = rand() % options.at(x-1).getSkill();}
-    else{enemy = rand() % b1.getSpeed();
+    else if(stat == 2){enemy = rand() % b1.getSpeed();
         hero = rand() % options.at(x-1).getSpeed();}
+    else{enemy = rand() % b1.getTech();
+        hero = rand() % options.at(x-1).getTech();}
 
     if(options.at(x-1).getLevel() > 99){hero+=10;}
     else if(options.at(x-1).getLevel() > 49){hero+=5;}
@@ -274,7 +300,7 @@ void getHero(){
     int x = rand() % all.size(), tester = 0; //x is a random numbered unlock, tester checks for duplicates
     Card c1(all.at(x).getName(), all.at(x).getRank(),
     all.at(x).getFaction(), all.at(x).getLevel(), all.at(x).getStrength(),
-    all.at(x).getSkill(), all.at(x).getSpeed()); //make new card from all list
+    all.at(x).getSkill(), all.at(x).getSpeed(), all.at(x).getTech()); //make new card from all list
 
     for(size_t i = 0; i < owned.size(); i++){ //checks for duplicates
         if(c1 == owned.at(i)){
@@ -306,14 +332,14 @@ void updateFile(){
         outfile << owned.at(i).getName() << "| " << owned.at(i).getRank() << " | "
         << owned.at(i).getFaction() << " | " << owned.at(i).getLevel() << " | "
         << owned.at(i).getStrength() << " | " << owned.at(i).getSkill() << " | "
-        << owned.at(i).getSpeed() << endl;
+        << owned.at(i).getSpeed() << " | " << owned.at(i).getTech() << endl;
     }
     outfile << "-------" << endl << "ALL" << endl; //every base character
     for(size_t i = 0; i < all.size(); i++){
         outfile << all.at(i).getName() << "| " << all.at(i).getRank() << " | "
         << all.at(i).getFaction() << " | " << all.at(i).getLevel() << " | "
         << all.at(i).getStrength() << " | " << all.at(i).getSkill() << " | "
-        << all.at(i).getSpeed() << endl;
+        << all.at(i).getSpeed() << " | " << all.at(i).getTech() << endl;
     }
     outfile.close();
 }
@@ -340,4 +366,66 @@ void welcome(){
     cout << endl << "(1): Begin Game" << endl;
     cin >> x;
     system("clear");
+}
+
+void saveFile(){
+    ofstream outfile;
+    string temp;
+    ifstream infile;
+    infile.open("card_list.txt");
+    if(outfile.fail()){cout << "ERROR: file failure" << endl; exit(0);}    
+    outfile.open("save_1.txt");
+    if(outfile.fail()){cout << "ERROR: file failure" << endl; exit(0);}
+
+    getline(infile, temp); 
+    while(!infile.eof()){
+        outfile << temp << endl;
+        getline(infile, temp);
+    }
+    infile.close();
+    outfile.close();
+}
+
+void swapSave(){
+    ifstream infile;
+    ofstream outfile;
+    infile.open("card_list.txt");
+    if(infile.fail()){cout << "ERROR: File failure" << endl; exit(0);}
+    outfile.open("swap_save.txt");
+    if(outfile.fail()){cout << "ERROR: File failure" << endl; exit(0);}
+    string temp;
+
+    getline(infile, temp); //send current to temp file
+    while(!infile.eof()){
+        outfile << temp << endl;
+        getline(infile, temp);
+    }
+    infile.close();
+    outfile.close();
+
+    infile.open("save_1.txt");
+    if(infile.fail()){cout << "ERROR: File failure" << endl; exit(0);}
+    outfile.open("card_list.txt");
+    if(outfile.fail()){cout << "ERROR: File failure" << endl; exit(0);}
+
+    getline(infile, temp); //send saved to current file
+    while(!infile.eof()){
+        outfile << temp << endl;
+        getline(infile, temp);
+    }
+    infile.close();
+    outfile.close();
+
+    infile.open("swap_save.txt");
+    if(infile.fail()){cout << "ERROR: File failure" << endl; exit(0);}
+    outfile.open("save_1.txt");
+    if(outfile.fail()){cout << "ERROR: File failure" << endl; exit(0);}
+
+    getline(infile, temp); //send saved to current file
+    while(!infile.eof()){
+        outfile << temp << endl;
+        getline(infile, temp);
+    }
+    infile.close();
+    outfile.close();
 }

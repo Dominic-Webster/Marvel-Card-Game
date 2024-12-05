@@ -9,4 +9,6 @@ marvel_card.o: marvel_card.cc card.h
 
 card.o: card.cc card.h
 	$(CC) -c $(CFLAGS) card.cc -o card.o
-	
+
+clean:
+	rm card.o marvel_card.o	
