@@ -26,41 +26,23 @@ Card::Card(string nm, string rk, string fc, int lv, int str, int skl, int spd, i
     mystic = my > 0 ? my : 10;
 }
 
-int Card::getLevel(){
-    return level;
-}
+int Card::getLevel(){return level;}
 
-int Card::getStrength(){
-    return strength;
-}
+int Card::getStrength(){return strength;}
 
-int Card::getSkill(){
-    return skill;
-}
+int Card::getSkill(){return skill;}
 
-int Card::getSpeed(){
-    return speed;
-}
+int Card::getSpeed(){return speed;}
 
-int Card::getTech(){
-    return tech;
-}
+int Card::getTech(){return tech;}
 
-int Card::getMystic(){
-    return mystic;
-}
+int Card::getMystic(){return mystic;}
 
-string Card::getName(){
-    return name;
-}
+string Card::getName(){return name;}
 
-string Card::getRank(){
-    return rank;
-}
+string Card::getRank(){return rank;}
 
-string Card::getFaction(){
-    return faction;
-}
+string Card::getFaction(){return faction;}
 
 void Card::levelUp(){
     level++;
@@ -111,46 +93,48 @@ Battle::Battle(string nm, string fc, int coin, int str, int skl, int spd, int tc
     mystic = my > 0 ? my : 10;
 }
 
-string Battle::getFaction(){
-    return faction;
-}
+string Battle::getFaction(){return faction;}
 
-string Battle::getName(){
-    return name;
-}
+string Battle::getName(){return name;}
 
-int Battle::getCoins(){
-    return coins;
-}
+int Battle::getCoins(){return coins;}
 
-int Battle::getStr(){
-    return strength;
-}
+int Battle::getStr(){return strength;}
 
-int Battle::getSkill(){
-    return skill;
-}
+int Battle::getSkill(){return skill;}
 
-int Battle::getSpeed(){
-    return speed;
-}
+int Battle::getSpeed(){return speed;}
 
-int Battle::getTech(){
-    return tech;
-}
+int Battle::getTech(){return tech;}
 
-int Battle::getMystic(){
-    return mystic;
-}
+int Battle::getMystic(){return mystic;}
 
 bool Battle::battle_good(vector <Card> owned){
-    if(faction == "ALL"){
-        return true;
-    }
+    if(faction == "ALL"){return true;}
     for(size_t i = 0; i < owned.size(); i++){
-        if(faction == owned.at(i).getName()){
-            return true;
-        }
+        if(faction == owned.at(i).getName()){return true;}
     }
-    return false;
+    return false; //default
 }
+
+Campaign::Campaign(){
+    name = "N/A";
+    faction = "neutral";
+    stat = 10;
+    coins = 10;
+}
+
+Campaign::Campaign(string nm, string fc, int st, int cn){
+    name = nm != "" ? nm : "N/A";
+    stat = st > 0 ? st : 10;
+    coins = cn > 0 ? cn : 10;
+    faction = fc != "" ? fc : "neutral";
+}
+
+int Campaign::getCoins(){return coins;}
+
+int Campaign::getStat(){return stat;}
+
+string Campaign::getName(){return name;}
+
+string Campaign::getFaction(){return faction;}

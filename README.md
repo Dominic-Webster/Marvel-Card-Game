@@ -1,6 +1,6 @@
 ## MARVEL CARD GAME
 
-### (Version 1.1.2)
+### (Version 2.0.0)
 
 ---
 
@@ -44,7 +44,7 @@
 - Head to the battle page, and select a fight (note: not all fights will be available. Choose a fight your character has access to).
 - Every battle challenges one of five stats: Strength, Skill, Speed, Tech, or Mystic. In future battles, select your character wisely.
 
- After a few battles, you should have enough coins to unlock more characters! Continue to fight and level up, and soon you'll be able to take on any challenge that comes yoour way!
+ After a few battles, you should have enough coins to unlock more characters! Continue to fight, level up, and complete campaign missions, and soon you'll be able to take on any challenge that comes your way!
 
 ---
 
@@ -67,6 +67,9 @@ Gamma:
 - Hulk
 - She-Hulk
 
+H.Y.D.R.A.:
+- Winter Soldier
+
 Pym:
 - Ant-Man
 
@@ -80,11 +83,24 @@ Spiderverse:
 
 Wakanda:
 - Black Panther
+- Kilmonger
 - Shuri
+
+X-Men:
+- Cyclops
+- Wolverine
 
 ---
 
 ### Update History
+
+#### UPDATE 2.0.0
+12/06/2024
+- Gameplay: Added campaign missions
+- Roster: Added Kilmonger, Winter Soldier, Cyclops, and Wolverine (unlockable through campaign)
+- Battles: Tweaked rewards
+
+#### _______________________________________
 
 #### UPDATE 1.1.2
 12/05/2024

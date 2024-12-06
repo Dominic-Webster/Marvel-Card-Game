@@ -43,4 +43,17 @@ class Battle{
         string name, faction;
         int coins, strength, skill, speed, tech, mystic;
 };
+
+class Campaign{
+    public:
+        Campaign();
+        Campaign(string nm, string fc, int st, int cn);
+        string getName();
+        int getStat();
+        int getCoins();
+        string getFaction();
+    private:
+        int stat, coins;
+        string name, faction;
+};
 #endif

@@ -16,10 +16,15 @@ void print(); //show roster
 void updateFile();
 void saveFile();
 void swapSave();
+void campaign();
+void camp_go(Campaign cam1, size_t stage);
 int COINS;
+string X; //for menu selects
+size_t Y, STAGE; //for menu selects and stage count
 vector <Card> owned, all;
 vector <string> factions; 
 vector <Battle> battle;
+vector <Campaign> story, progress;
 
 int main(int argc, char const *argv[]){
     srand(time(0)); //sets random
@@ -87,13 +92,38 @@ int main(int argc, char const *argv[]){
     }
     infile.close();
 
+    infile.open("campaign.txt"); //campaign
+    if(infile.fail()){
+        cout << "ERROR: File failure" << endl;
+        exit(0);
+    }
+    infile >> waste >> level;
+    STAGE = stoi(level);
+    getline(infile, temp);
+    getline(infile, temp);
+    while(!infile.eof()){
+        stringstream a(temp);
+        getline(a, name, '|');
+        a >> faction >> waste >> coin >> waste >> skl;
+        Campaign cam1(name, faction, stoi(skl), stoi(coin));
+        story.push_back(cam1);
+        getline(infile, temp);
+    }
+    infile.close();
+
+    for(size_t i = 0; i < STAGE; i++){ //get progress
+        progress.push_back(story.at(i));
+    }
+
     string command = ""; //dev commands
     if(argc == 2){
         command = argv[1];
     }
     if(command == "-reset"){
         COINS = 100;
+        STAGE = 1;
         owned.erase(owned.begin(), owned.begin() + owned.size());
+        if(all.size() > 14){all.erase(all.begin() + 14, all.begin() + all.size());}
         updateFile();
         cout << "File Reset" << endl;
         exit(0);
@@ -134,21 +164,22 @@ int main(int argc, char const *argv[]){
 }
 
 void menu(){
-    string x;
     cout << "    - MENU -" << endl << endl;
     cout << "Characters owned: " << owned.size() << endl;
     cout << "Coins: " << COINS << endl << endl;
     cout << " (1): View Roster" << endl;
-    cout << " (2): Battle" << endl;
-    cout << " (3): Store" << endl;
-    cout << " (4): [Exit Game]" << endl;
-    cin >> x;
+    cout << " (2): Campaign" << endl;
+    cout << " (3): Battle" << endl;
+    cout << " (4): Store" << endl;
+    cout << " (5): [Exit Game]" << endl;
+    cin >> X;
     system("clear");
 
-    if(x == "1"){print();}
-    else if(x == "2"){battle_menu();}
-    else if(x == "3"){store();}
-    else if(x == "4"){exit(0);}
+    if(X == "1"){print();}
+    else if(X == "2"){campaign();}
+    else if(X == "3"){battle_menu();}
+    else if(X == "4"){store();}
+    else if(X == "5"){exit(0);}
     else{menu();}
 }
 
@@ -173,16 +204,13 @@ void print(){
         cout << "--------------------" << endl;
     }
 
-    
-    int x;
     cout << endl << " (1): [Menu]" << endl;
-    cin >> x;
+    cin >> X;
     system("clear");
     menu();
 }
 
 void store(){
-    int x;
     cout << "    - STORE -" << endl << endl;
     cout << "Coins: " << COINS << endl << endl;
     cout << " (1): Common Pack (x1) {100 coins}" << endl;
@@ -190,10 +218,10 @@ void store(){
     cout << " (3): Rare Pack (x15) {1000 coins}" << endl; //x15
     cout << " (4): Mythic Pack (x20) {1300 coins}" << endl; //x20
     cout << " (5): [Menu]" << endl;
-    cin >> x;
+    cin >> X;
     system("clear");
 
-    if(x == 1){
+    if(X == "1"){
         if(COINS < 100){
             cout << "Not enough coins" << endl << endl;
             store();
@@ -204,7 +232,7 @@ void store(){
             store();
         }
     }
-    else if(x == 2){
+    else if(X == "2"){
         if(COINS < 400){
             cout << "Not enough coins" << endl << endl;
             store();
@@ -215,7 +243,7 @@ void store(){
             store();
         }
     }
-    else if(x == 3){
+    else if(X == "3"){
         if(COINS < 1000){
             cout << "Not enough coins" << endl << endl;
             store();
@@ -226,7 +254,7 @@ void store(){
             store();
         }
     }
-    else if(x == 4){
+    else if(X == "4"){
         if(COINS < 1300){
             cout << "Not enough coins" << endl << endl;
             store();
@@ -241,7 +269,6 @@ void store(){
 }
 
 void battle_menu(){
-    size_t x;
     int good = 0;
     cout << "    - BATTLE -" << endl << endl;
     for(size_t i = 0; i < battle.size(); i++){ //prints options
@@ -257,16 +284,15 @@ void battle_menu(){
         good = 0;
     }
     cout << endl << " (" << battle.size()+1 << "): [Menu]" << endl;
-    cin >> x;
+    cin >> Y;
     system("clear");
 
-    if(x < battle.size()+1){fight(battle.at(x-1));}
+    if(Y < battle.size()+1){fight(battle.at(Y-1));}
     else{menu();}
 }
 
 void fight(Battle b1){
     int stat = rand()%5, hero, enemy, z;
-    size_t x;
     vector <Card> options;
     string opp;
     if(stat == 0){opp = "Strength";} //determine opposing stat
@@ -276,7 +302,7 @@ void fight(Battle b1){
     else{opp = "Mystic";}
 
     do{ //runs until valid input is given
-    cout << "     - FIGHT -" << endl;
+    cout << "     - FIGHT -" << endl << endl;
     cout << "Select Your Champion [Opposed stat: " << opp << "]" << endl;
     for(size_t i = 0; i < owned.size(); i++){ //gives options from roster
         if(owned.at(i).getFaction() == b1.getFaction() || b1.getFaction() == "ALL" || b1.getFaction() == owned.at(i).getName()){
@@ -287,29 +313,29 @@ void fight(Battle b1){
         cout << " (" << (i)+1 << "): " << options.at(i).getName() << endl;
     }
     cout << " (" << options.size() + 1 << "): [Back]" << endl; //escape option
-    cin >> x;
+    cin >> Y;
     system("clear");
-    }while(x > options.size() + 1);
+    }while(Y > options.size() + 1);
 
-    if(x == options.size() + 1){battle_menu();} //return to battle menu
+    if(Y == options.size() + 1){battle_menu();} //return to battle menu
 
     if(stat == 0){enemy = rand() % b1.getStr();
-        hero = rand() % options.at(x-1).getStrength();} //get stats (varies)
+        hero = rand() % options.at(Y-1).getStrength();} //get stats (varies)
     else if(stat == 1){enemy = rand() % b1.getSkill();
-        hero = rand() % options.at(x-1).getSkill();}
+        hero = rand() % options.at(Y-1).getSkill();}
     else if(stat == 2){enemy = rand() % b1.getSpeed();
-        hero = rand() % options.at(x-1).getSpeed();}
+        hero = rand() % options.at(Y-1).getSpeed();}
     else if(stat == 3){enemy = rand() % b1.getTech();
-        hero = rand() % options.at(x-1).getTech();}
+        hero = rand() % options.at(Y-1).getTech();}
     else {enemy = rand() % b1.getMystic();
-        hero = rand() % options.at(x-1).getMystic();}
+        hero = rand() % options.at(Y-1).getMystic();}
 
-    if(options.at(x-1).getLevel() > 99){hero+=10;}
-    else if(options.at(x-1).getLevel() > 49){hero+=5;}
-    else if(options.at(x-1).getLevel() > 24){hero+=2;}
-    else if(options.at(x-1).getLevel() > 9){hero++;}
+    if(options.at(Y-1).getLevel() > 99){hero+=10;}
+    else if(options.at(Y-1).getLevel() > 49){hero+=5;}
+    else if(options.at(Y-1).getLevel() > 24){hero+=2;}
+    else if(options.at(Y-1).getLevel() > 9){hero++;}
 
-    cout << options.at(x-1).getName() << " vs " << b1.getName() << endl;
+    cout << options.at(Y-1).getName() << " vs " << b1.getName() << endl;
     if(hero == enemy){ //determine outcome (draw)
         COINS += (b1.getCoins() / 2);
         cout << " Results: Draw" << endl;
@@ -329,6 +355,100 @@ void fight(Battle b1){
     system("clear");
     updateFile();
     battle_menu();
+}
+
+void campaign(){
+    cout << "    - CAMPAIGN -" << endl << endl;
+    cout << "Stages Unlocked: " << STAGE << "/" << story.size() << endl << endl;
+    for(size_t i = 0; i < progress.size(); i++){
+        cout << " (" << (i)+1 << "): " << progress.at(i).getName() <<
+        "- [" << progress.at(i).getFaction() << "] - {Reward: " <<
+        progress.at(i).getCoins() << " coins}" << endl << endl;
+    }
+    cout << " (" << (STAGE)+1 << "): [Menu]" << endl;
+    cin >> Y;
+    system("clear");
+    if(Y <= progress.size()){camp_go(progress.at(Y-1), Y);}
+    else{menu();}
+}
+
+void camp_go(Campaign cam1, size_t stage){
+    int stat = rand()%5, hero, enemy, z;
+    vector <Card> options;
+    string opp;
+    if(stat == 0){opp = "Strength";} //determine opposing stat
+    else if(stat == 1){opp = "Skill";}
+    else if(stat == 2){opp = "Speed";}
+    else if(stat == 3){opp = "Tech";}
+    else{opp = "Mystic";}
+
+    cout << "     - STAGE " << STAGE << " -" << endl << endl;
+    cout << "Select Your Champion [Opposed stat: " << opp << "]" << endl;
+    for(size_t i = 0; i < owned.size(); i++){ //gives options from roster
+        if(owned.at(i).getFaction() == cam1.getFaction() || cam1.getFaction() == "ALL" || cam1.getFaction() == owned.at(i).getName()){
+            options.push_back(owned.at(i));
+        }
+    }
+    for(size_t i = 0; i < options.size(); i++){ //prints options
+        cout << " (" << (i)+1 << "): " << options.at(i).getName() << endl;
+    }
+    cout << " (" << options.size() + 1 << "): [Back]" << endl; //escape option
+    cin >> Y;
+    system("clear");
+
+    if(Y == options.size() + 1){campaign();} //return to battle menu
+
+    enemy = rand() % cam1.getStat();
+
+    if(stat == 0){hero = rand() % options.at(Y-1).getStrength();} //get stats (varies)
+    else if(stat == 1){hero = rand() % options.at(Y-1).getSkill();}
+    else if(stat == 2){hero = rand() % options.at(Y-1).getSpeed();}
+    else if(stat == 3){hero = rand() % options.at(Y-1).getTech();}
+    else {hero = rand() % options.at(Y-1).getMystic();}
+
+    if(options.at(Y-1).getLevel() > 99){hero+=10;}
+    else if(options.at(Y-1).getLevel() > 49){hero+=5;}
+    else if(options.at(Y-1).getLevel() > 24){hero+=2;}
+    else if(options.at(Y-1).getLevel() > 9){hero++;}
+
+    cout << "Sending " << options.at(Y-1).getName() << " to " << cam1.getName() << endl;
+    if(hero == enemy){ //determine outcome (draw)
+        COINS += (cam1.getCoins() / 2);
+        cout << " Results: Draw" << endl;
+        cout << " Coins Earned: " << (cam1.getCoins() / 2) << endl;
+    }
+    else if(hero < enemy){ //determine outcome (loss)
+        cout << " Results: Loss" << endl;
+        cout << " Coins Earned: 0" << endl;
+    }
+    else{ //determine outcome (win)
+        COINS +=  cam1.getCoins();
+        cout << " Results: VICTORY!" << endl;
+        cout << " Coins Earned: " << cam1.getCoins() << endl; 
+        if(stage == STAGE && STAGE != story.size()){
+            cout << " New Stage Unlocked!" << endl;
+            progress.push_back(story.at(STAGE));
+            STAGE++;
+            if(STAGE == 8){
+                Card card("Kilmonger", "Common", "Wakanda", 1, 15, 18, 14, 13, 2);
+                all.push_back(card);
+            }
+            if(STAGE == 14){
+                Card card("Winter Soldier", "Common", "H.Y.D.R.A.", 5, 20, 22, 14, 16, 4);
+                all.push_back(card);
+            }
+            if(STAGE == 18){
+                Card card("Wolverine", "Uncommon", "X-Men", 10, 25, 14, 19, 6, 10);
+                Card card1("Cyclops", "Unommon", "X-Men", 10, 20, 20, 15, 16, 13);
+                all.push_back(card); all.push_back(card1);
+            }
+        }
+    }
+    cout << endl << " (1): [Back]" << endl;
+    cin >> z;
+    system("clear");
+    updateFile();
+    campaign();
 }
 
 void getHero(){
@@ -384,10 +504,21 @@ void updateFile(){
         << all.at(i).getMystic() << endl;
     }
     outfile.close();
+
+    outfile.open("campaign.txt");
+    if(outfile.fail()){
+        cout << "ERROR: file failure" << endl; exit(0);}
+
+    outfile << "Stage: " << STAGE << endl;
+    for(size_t i = 0; i < story.size(); i++){
+        outfile << story.at(i).getName() << "| " << story.at(i).getFaction() << 
+        " | " << story.at(i).getCoins() << " | " << story.at(i).getStat() << endl;
+    }
+    outfile.close();
 }
 
 void welcome(){
-    int x;
+    string x;
     cout << "Welcome to the Marvel Card Game!" << endl;
     cout << " - Collect Classic Characters" << endl;
     cout << " - Battle Epic Enemies" << endl;
