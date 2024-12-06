@@ -154,10 +154,11 @@ void menu(){
 
 void print(){
     cout << "    - CHARACTER ROSTER -" << endl << endl;
-    cout << "Owned: " << owned.size() << "/" << all.size() << endl << endl;
+    cout << "Owned: " << owned.size() << "/" << all.size() << endl;
+    cout << "--------------------" << endl;
 
     for(size_t j = 0; j < factions.size(); j++){
-        cout << "  {" << factions.at(j) << "}" << endl;
+        cout << "  {" << factions.at(j) << "}" << endl << endl;
         for(size_t i = 0; i < owned.size(); i++){
             if(owned.at(i).getFaction() == factions.at(j)){
                 cout << " - " << owned.at(i).getName() << " (" << owned.at(i).getRank() 
@@ -166,7 +167,7 @@ void print(){
                 cout << "        Skill: " << owned.at(i).getSkill() << endl;
                 cout << "        Speed: " << owned.at(i).getSpeed() << endl;
                 cout << "         Tech: " << owned.at(i).getTech() << endl;
-                cout << "       Mystic: " << owned.at(i).getMystic() << endl;
+                cout << "       Mystic: " << owned.at(i).getMystic() << endl << endl;
             }
         }
         cout << "--------------------" << endl;
