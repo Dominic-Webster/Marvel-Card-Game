@@ -10,6 +10,7 @@ class Card{
         Card();
         Card(string nm, string rk, string fc, int lv, int str, int skl, int spd, int tc, int my);
         void levelUp();
+        void increase(int num);
         int getLevel();
         int getTech();
         int getStrength();

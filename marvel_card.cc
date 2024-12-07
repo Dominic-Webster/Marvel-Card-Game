@@ -456,6 +456,10 @@ void camp_go(Campaign cam1, size_t stage){
                 cout << endl << "Congratulations! You have Won!" << endl;
                 COINS += 1000;
                 cout << " +1,000 Coins!" << endl;
+                for(size_t i = 0; i < owned.size(); i++){
+                    owned.at(i).increase(15);
+                }
+                STAGE++;
             }
         }
     }

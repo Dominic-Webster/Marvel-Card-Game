@@ -28,6 +28,13 @@ Card::Card(string nm, string rk, string fc, int lv, int str, int skl, int spd, i
 
 int Card::getLevel(){return level;}
 
+void Card::increase(int num){
+    if(num > 0){
+        strength += num; skill += num; speed += num;
+        tech += num; mystic += num;
+    }
+}
+
 int Card::getStrength(){return strength;}
 
 int Card::getSkill(){return skill;}
