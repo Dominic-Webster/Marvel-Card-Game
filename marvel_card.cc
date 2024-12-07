@@ -452,6 +452,11 @@ void camp_go(Campaign cam1, size_t stage){
                 cout << " Cyclops Available" << endl << " Wolverine Available" << endl;
                 all.push_back(card); all.push_back(card1);
             }
+            if(STAGE == 28){
+                cout << endl << "Congratulations! You have Won!" << endl;
+                COINS += 1000;
+                cout << " +1,000 Coins!" << endl;
+            }
         }
     }
     cout << endl << " (1): [Back]" << endl;
