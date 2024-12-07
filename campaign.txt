@@ -1,25 +1,25 @@
 Stage: 10
-Defeat Street Criminal | ALL | 5 | 10
-Defeat Street Criminal Brute | ALL | 5 | 12
+Defeat Street Criminal | ALL | 10 | 10
+Defeat Street Criminal Brute | ALL | 10 | 12
 Defeat Criminal Leader | ALL | 10 | 15
-Defeat Kingpin | Spiderverse | 15 | 20
+Defeat Kingpin | Spiderverse | 20 | 20
 Stop Bank Robbery | ALL | 10 | 20
-Defeat Hydra Agent | Avenger | 15 | 22
+Defeat Hydra Agent | Avenger | 20 | 22
 Capture Kilmonger | Wakanda | 20 | 25
-Defeat Malakith | Asgard | 20 | 28
-Defuse A Bomb | ALL | 20 | 30
-Capture Yellowjacket | Pym | 25 | 30
-Defeat Mordo | Convocation | 30 | 35
-Stop Abomination's Rampage | Gamma | 35 | 38
-Capture Winter Soldier | S.H.I.E.L.D. | 40 | 40
-Stop Street Gang War | ALL | 45 | 40
-Defeat Hela | Asgard | 50 | 45
-Sabatoge H.Y.D.R.A. | H.Y.D.R.A. | 60 | 45
-Stabilize The Multiverse | Convocation | 75 | 50
-Overthrow A.I.M. | Avenger | 80 | 55
-Capture The Sinister Six | Spiderverse | 90 | 60
-Stop An Asteroid | Gamma | 100 | 65
-Unite The Tribes Of Wakanda | Wakanda | 125 | 70
+Defeat Malakith | Asgard | 30 | 28
+Defuse A Bomb | ALL | 30 | 30
+Capture Yellowjacket | Pym | 40 | 30
+Defeat Mordo | Convocation | 40 | 35
+Stop Abomination's Rampage | Gamma | 40 | 38
+Capture Winter Soldier | S.H.I.E.L.D. | 50 | 40
+Stop Street Gang War | ALL | 50 | 40
+Defeat Hela | Asgard | 60 | 45
+Sabatoge H.Y.D.R.A. | H.Y.D.R.A. | 70 | 45
+Stabilize The Multiverse | Convocation | 80 | 50
+Overthrow A.I.M. | Avenger | 90 | 55
+Capture The Sinister Six | Spiderverse | 100 | 60
+Stop An Asteroid | Gamma | 120 | 65
+Unite The Tribes Of Wakanda | Wakanda | 150 | 70
 Retreive Pym Particles | Pym | 150 | 75
 Disable The Antimatter Bomb | X-Men | 200 | 80
 Fortify The Helicarrier | S.H.I.E.L.D. | 250 | 85
