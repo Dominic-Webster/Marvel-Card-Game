@@ -1,4 +1,4 @@
-Stage: 10
+Stage: 1
 Defeat Street Criminal | ALL | 10 | 10
 Defeat Street Criminal Brute | ALL | 10 | 12
 Defeat Criminal Leader | ALL | 10 | 15
@@ -26,3 +26,4 @@ Fortify The Helicarrier | S.H.I.E.L.D. | 250 | 85
 Rescue Stan Lee | Spiderverse | 300 | 90
 Assemble The Avengers | Avenger | 500 | 95
 Defeat Thanos | ALL | 1000 | 100
+Celebrate Your Victory | ALL | 200 | 5

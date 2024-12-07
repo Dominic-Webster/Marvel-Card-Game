@@ -186,6 +186,10 @@ void menu(){
 void print(){
     cout << "    - CHARACTER ROSTER -" << endl << endl;
     cout << "Owned: " << owned.size() << "/" << all.size() << endl;
+    int power = 0;
+    for(size_t i = 0; i < owned.size(); i++){ //get roster power
+        power += owned.at(i).getPower();}
+    cout << "Overall Power: " << power << endl;
     cout << "--------------------" << endl;
 
     for(size_t j = 0; j < factions.size(); j++){
@@ -194,6 +198,7 @@ void print(){
             if(owned.at(i).getFaction() == factions.at(j)){
                 cout << " - " << owned.at(i).getName() << " (" << owned.at(i).getRank() 
                 << " - level: " << owned.at(i).getLevel() << ")" << endl;
+                cout << "           TOTAL POWER: " << owned.at(i).getPower() << endl;
                 cout << "     Strength: " << owned.at(i).getStrength() << endl;
                 cout << "        Skill: " << owned.at(i).getSkill() << endl;
                 cout << "        Speed: " << owned.at(i).getSpeed() << endl;
@@ -214,9 +219,9 @@ void store(){
     cout << "    - STORE -" << endl << endl;
     cout << "Coins: " << COINS << endl << endl;
     cout << " (1): Common Pack (x1) {100 coins}" << endl;
-    cout << " (2): Uncommon Pack (x5) {400 coins}" << endl; //x5
-    cout << " (3): Rare Pack (x15) {1000 coins}" << endl; //x15
-    cout << " (4): Mythic Pack (x20) {1300 coins}" << endl; //x20
+    cout << " (2): Uncommon Pack (x5) {300 coins}" << endl; //x5
+    cout << " (3): Rare Pack (x10) {500 coins}" << endl; //x15
+    cout << " (4): Mythic Pack (x15) {800 coins}" << endl; //x20
     cout << " (5): [Menu]" << endl;
     cin >> X;
     system("clear");
@@ -233,34 +238,34 @@ void store(){
         }
     }
     else if(X == "2"){
-        if(COINS < 400){
+        if(COINS < 300){
             cout << "Not enough coins" << endl << endl;
             store();
         }
         else{
-            COINS -= 400;
+            COINS -= 300;
             for(int i = 0; i < 5; i++){getHero();} //unlock x5
             store();
         }
     }
     else if(X == "3"){
-        if(COINS < 1000){
+        if(COINS < 500){
             cout << "Not enough coins" << endl << endl;
             store();
         }
         else{
-            COINS -= 1000;
+            COINS -= 500;
             for(int i = 0; i < 15; i++){getHero();} //unlock x15
             store();
         }
     }
     else if(X == "4"){
-        if(COINS < 1300){
+        if(COINS < 800){
             cout << "Not enough coins" << endl << endl;
             store();
         }
         else{
-            COINS -= 1300;
+            COINS -= 800;
             for(int i = 0; i < 20; i++){getHero();} //unlock x15
             store();
         }
@@ -335,7 +340,8 @@ void fight(Battle b1){
     else if(options.at(Y-1).getLevel() > 24){hero+=2;}
     else if(options.at(Y-1).getLevel() > 9){hero++;}
 
-    cout << options.at(Y-1).getName() << " vs " << b1.getName() << endl;
+    cout << options.at(Y-1).getName() << " (" << hero << ") vs " << 
+    b1.getName() << "(" << enemy << ")" << endl;
     if(hero == enemy){ //determine outcome (draw)
         COINS += (b1.getCoins() / 2);
         cout << " Results: Draw" << endl;
@@ -411,7 +417,8 @@ void camp_go(Campaign cam1, size_t stage){
     else if(options.at(Y-1).getLevel() > 24){hero+=2;}
     else if(options.at(Y-1).getLevel() > 9){hero++;}
 
-    cout << "Sending " << options.at(Y-1).getName() << " to " << cam1.getName() << endl;
+    cout << "Sending " << options.at(Y-1).getName() << " (" << 
+    hero << ") to " << cam1.getName() << "(" << enemy << ")" << endl;
     if(hero == enemy){ //determine outcome (draw)
         COINS += (cam1.getCoins() / 2);
         cout << " Results: Draw" << endl;
@@ -426,40 +433,49 @@ void camp_go(Campaign cam1, size_t stage){
         cout << " Results: VICTORY!" << endl;
         cout << " Coins Earned: " << cam1.getCoins() << endl; 
         if(stage == STAGE && STAGE != story.size()){
-            cout << " New Stage Unlocked!" << endl;
-            cout << " +50 coins!" << endl;
+            cout << endl << "  New Stage Unlocked!" << endl;
+            cout << "  +50 coins!" << endl;
+            cout << "  " << options.at(Y-1).getName() << " has increased in power" << endl;
+            for(size_t i = 0; i < owned.size(); i++){
+                if(owned.at(i).getName() == options.at(Y-1).getName()){
+                    if(STAGE < 10){owned.at(i).increase(1);}
+                    else if(STAGE < 20){owned.at(i).increase(3);}
+                    else{owned.at(i).increase(5);}
+                    i = owned.size();
+                }
+            }
             COINS += 50;
             progress.push_back(story.at(STAGE));
             STAGE++;
             if(STAGE == 8){
                 Card card("Kilmonger", "Common", "Wakanda", 1, 15, 18, 14, 13, 2);
-                cout << " Kilmonger Available" << endl;
+                cout << "  Kilmonger Available" << endl;
                 all.push_back(card);
             }
             if(STAGE == 11){
                 Card card("Yellowjacket", "Common", "Pym", 1, 20, 15, 17, 24, 8);
-                cout << " Yellowjacket Available" << endl;
+                cout << "  Yellowjacket Available" << endl;
                 all.push_back(card);
             }
             if(STAGE == 14){
                 Card card("Winter Soldier", "Common", "H.Y.D.R.A.", 1, 20, 22, 14, 16, 4);
-                cout << " Winter Soldier Available" << endl;
+                cout << "  Winter Soldier Available" << endl;
                 all.push_back(card);
             }
             if(STAGE == 18){
-                Card card("Wolverine", "Uncommon", "X-Men", 1, 25, 14, 19, 6, 10);
-                Card card1("Cyclops", "Unommon", "X-Men", 1, 20, 20, 15, 16, 13);
-                cout << " Cyclops Available" << endl << " Wolverine Available" << endl;
+                Card card("Wolverine", "Common", "X-Men", 1, 25, 14, 19, 6, 10);
+                Card card1("Cyclops", "Common", "X-Men", 1, 20, 20, 15, 16, 13);
+                cout << "  Cyclops Available" << endl << "  Wolverine Available" << endl;
                 all.push_back(card); all.push_back(card1);
             }
             if(STAGE == 28){
-                cout << endl << "Congratulations! You have Won!" << endl;
-                COINS += 1000;
-                cout << " +1,000 Coins!" << endl;
+                cout << endl << "  CAMPAIGN COMPLETE!" << endl;
+                cout << "  Roster Power Increased!" << endl;
+                cout << "  +1500 coins!" << endl;
+                COINS += 1500;
                 for(size_t i = 0; i < owned.size(); i++){
-                    owned.at(i).increase(15);
+                    owned.at(i).increase(10);
                 }
-                STAGE++;
             }
         }
     }

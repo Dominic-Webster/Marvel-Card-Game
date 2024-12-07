@@ -35,6 +35,11 @@ void Card::increase(int num){
     }
 }
 
+int Card::getPower(){
+    power = strength + skill + speed + tech + mystic;
+    return power;
+}
+
 int Card::getStrength(){return strength;}
 
 int Card::getSkill(){return skill;}

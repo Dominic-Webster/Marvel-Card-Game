@@ -17,13 +17,14 @@ class Card{
         int getSkill();
         int getSpeed();
         int getMystic();
+        int getPower();
         string getName();
         string getRank();
         string getFaction();
         friend bool operator ==(const Card &c1, const Card &c2); //compare names
     private:
         string name, rank, faction;
-        int level, strength, skill, speed, tech, mystic;
+        int level, strength, skill, speed, tech, mystic, power;
 
 };
 
