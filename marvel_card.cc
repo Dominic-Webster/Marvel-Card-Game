@@ -427,6 +427,8 @@ void camp_go(Campaign cam1, size_t stage){
         cout << " Coins Earned: " << cam1.getCoins() << endl; 
         if(stage == STAGE && STAGE != story.size()){
             cout << " New Stage Unlocked!" << endl;
+            cout << " +20 coins!" << endl;
+            COINS += 20;
             progress.push_back(story.at(STAGE));
             STAGE++;
             if(STAGE == 8){
