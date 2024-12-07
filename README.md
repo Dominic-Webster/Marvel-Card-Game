@@ -72,6 +72,7 @@ H.Y.D.R.A.:
 
 Pym:
 - Ant-Man
+- Yellowjacket
 
 S.H.E.I.L.D.:
 - Black Widow
@@ -97,7 +98,7 @@ X-Men:
 #### UPDATE 2.0.0
 12/06/2024
 - Gameplay: Added campaign missions
-- Roster: Added Kilmonger, Winter Soldier, Cyclops, and Wolverine (unlockable through campaign)
+- Roster: Added Kilmonger, Yellowjacket, Winter Soldier, Cyclops, and Wolverine
 - Battles: Tweaked rewards
 
 #### _______________________________________
