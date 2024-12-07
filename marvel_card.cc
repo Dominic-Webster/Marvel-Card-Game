@@ -392,7 +392,7 @@ void camp_go(Campaign cam1, size_t stage){
     for(size_t i = 0; i < options.size(); i++){ //prints options
         cout << " (" << (i)+1 << "): " << options.at(i).getName() << endl;
     }
-    cout << " (" << options.size() + 1 << "): [Back]" << endl; //escape option
+    cout << endl << " (" << options.size() + 1 << "): [Back]" << endl; //escape option
     cin >> Y;
     system("clear");
 
