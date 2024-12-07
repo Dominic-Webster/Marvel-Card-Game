@@ -437,18 +437,18 @@ void camp_go(Campaign cam1, size_t stage){
                 all.push_back(card);
             }
             if(STAGE == 11){
-                Card card("Yellowjacket", "Common", "Pym", 7, 20, 15, 17, 24, 8);
+                Card card("Yellowjacket", "Common", "Pym", 1, 20, 15, 17, 24, 8);
                 cout << " Yellowjacket Available" << endl;
                 all.push_back(card);
             }
             if(STAGE == 14){
-                Card card("Winter Soldier", "Common", "H.Y.D.R.A.", 5, 20, 22, 14, 16, 4);
+                Card card("Winter Soldier", "Common", "H.Y.D.R.A.", 1, 20, 22, 14, 16, 4);
                 cout << " Winter Soldier Available" << endl;
                 all.push_back(card);
             }
             if(STAGE == 18){
-                Card card("Wolverine", "Uncommon", "X-Men", 10, 25, 14, 19, 6, 10);
-                Card card1("Cyclops", "Unommon", "X-Men", 10, 20, 20, 15, 16, 13);
+                Card card("Wolverine", "Uncommon", "X-Men", 1, 25, 14, 19, 6, 10);
+                Card card1("Cyclops", "Unommon", "X-Men", 1, 20, 20, 15, 16, 13);
                 cout << " Cyclops Available" << endl << " Wolverine Available" << endl;
                 all.push_back(card); all.push_back(card1);
             }
