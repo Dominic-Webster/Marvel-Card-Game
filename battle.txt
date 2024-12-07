@@ -1,14 +1,14 @@
 Street Criminal |ALL| 20 | 8 | 8 | 8 | 8 | 5
-Hydra Agent |Avenger| 25 | 12 | 13 | 10 | 14 | 10
-Yellowjacket |Pym| 25 | 18 | 12 | 11 | 20 | 9
-A.I.M. Agent |S.H.I.E.L.D.| 25 | 14 | 12 | 15 | 18 | 14
-Green Goblin |Spiderverse| 25 | 18 | 19 | 22 | 17 | 7
-Mandarin |Iron Man| 30 | 12 | 14 | 20 | 10 | 18
-Abomination |Gamma| 40 | 30 | 5 | 20 | 4 | 5
-Vulture |Spiderverse| 40 | 15 | 25 | 13 | 25 | 5
-Winter Soldier |S.H.I.E.L.D.| 50 | 18 | 25 | 17 | 16 | 10
-Kilmonger |Wakanda| 50 | 20 | 25 | 23 | 18 | 16
-Mordo |Convocation| 75 | 17 | 28 | 19 | 14 | 50
-Hela |Asgard| 300 | 100 | 25 | 30 | 20 | 35
-Ultron |Avenger| 200 | 30 | 40 | 30 | 45 | 30
-Thanos |ALL| 500 | 75 | 50 | 50 | 40 | 60
+Hydra Agent |Avenger| 30 | 12 | 13 | 10 | 14 | 10
+Yellowjacket |Pym| 50 | 18 | 12 | 11 | 20 | 9
+A.I.M. Agent |S.H.I.E.L.D.| 80 | 14 | 12 | 15 | 18 | 14
+Green Goblin |Spiderverse| 80 | 18 | 19 | 22 | 17 | 7
+Mandarin |Iron Man| 100 | 12 | 14 | 20 | 10 | 18
+Abomination |Gamma| 100 | 30 | 5 | 20 | 4 | 5
+Vulture |Spiderverse| 100 | 15 | 25 | 13 | 25 | 5
+Winter Soldier |S.H.I.E.L.D.| 150 | 18 | 25 | 17 | 16 | 10
+Kilmonger |Wakanda| 150 | 20 | 25 | 23 | 18 | 16
+Mordo |Convocation| 150 | 17 | 28 | 19 | 14 | 50
+Hela |Asgard| 300 | 200 | 25 | 30 | 20 | 35
+Ultron |Avenger| 400 | 30 | 40 | 30 | 45 | 30
+Thanos |ALL| 700 | 75 | 50 | 50 | 40 | 60

@@ -1,6 +1,6 @@
 ## MARVEL CARD GAME
 
-### (Version 2.0.0)
+### (Version 2.0.1)
 
 ---
 
@@ -94,6 +94,14 @@ X-Men:
 ---
 
 ### Update History
+
+#### UPDATE 2.0.1
+12/07/2024
+- Campaign: Tweaked rewards/enemy stats. First time completion now raises character power
+- Store: Decreased prices
+- Roster: Shows character total power
+
+#### _______________________________________
 
 #### UPDATE 2.0.0
 12/06/2024
