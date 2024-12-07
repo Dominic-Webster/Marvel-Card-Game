@@ -1,4 +1,4 @@
-Stage: 1
+Stage: 10
 Defeat Street Criminal | ALL | 5 | 10
 Defeat Street Criminal Brute | ALL | 5 | 12
 Defeat Criminal Leader | ALL | 10 | 15
