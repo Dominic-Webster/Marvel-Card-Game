@@ -457,6 +457,11 @@ void camp_go(Campaign cam1, size_t stage){
                 cout << "  Yellowjacket Available" << endl;
                 all.push_back(card);
             }
+            if(STAGE == 12){
+                Card card("Mordo", "Common", "Convocation", 1, 15, 20, 19, 10, 23);
+                cout << "  Mordo Available" << endl;
+                all.push_back(card);
+            }
             if(STAGE == 14){
                 Card card("Winter Soldier", "Common", "H.Y.D.R.A.", 1, 20, 22, 14, 16, 4);
                 cout << "  Winter Soldier Available" << endl;
@@ -467,6 +472,11 @@ void camp_go(Campaign cam1, size_t stage){
                 Card card1("Cyclops", "Common", "X-Men", 1, 20, 20, 15, 16, 13);
                 cout << "  Cyclops Available" << endl << "  Wolverine Available" << endl;
                 all.push_back(card); all.push_back(card1);
+            }
+            if(STAGE == 20){
+                Card card("Miles Morales", "Common", "Spiderverse", 1, 25, 17, 18, 15, 2);
+                cout << "  Miles Morales Available" << endl;
+                all.push_back(card);
             }
             if(STAGE == 28){
                 cout << endl << "  CAMPAIGN COMPLETE!" << endl;

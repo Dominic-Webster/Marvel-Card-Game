@@ -62,6 +62,7 @@ Avengers:
 
 Convocation:
 - Doctor Strange
+- Mordo
 
 Gamma:
 - Hulk
@@ -80,6 +81,7 @@ S.H.E.I.L.D.:
 - War Machine
 
 Spiderverse:
+- Miles Morales
 - Spider-Man
 
 Wakanda:
@@ -99,7 +101,7 @@ X-Men:
 12/07/2024
 - Campaign: Tweaked rewards/enemy stats. First time completion now raises character power
 - Store: Decreased prices
-- Roster: Shows character total power
+- Roster: Shows character total power. Mordo and Miles Morales added
 
 #### _______________________________________
 
