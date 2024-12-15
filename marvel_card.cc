@@ -171,7 +171,8 @@ void menu(){
     cout << " (2): Campaign" << endl;
     cout << " (3): Battle" << endl;
     cout << " (4): Store" << endl;
-    cout << " (5): [Exit Game]" << endl;
+    cout << " (5): [Exit Game]" << endl << endl;
+    cout << " -> ";
     cin >> X;
     system("clear");
 
@@ -209,7 +210,7 @@ void print(){
         cout << "--------------------" << endl;
     }
 
-    cout << endl << " (1): [Menu]" << endl;
+    cout << endl << " (1): [Menu]" << endl << endl << " -> ";
     cin >> X;
     system("clear");
     menu();
@@ -220,9 +221,10 @@ void store(){
     cout << "Coins: " << COINS << endl << endl;
     cout << " (1): Common Pack (x1) {100 coins}" << endl;
     cout << " (2): Uncommon Pack (x5) {300 coins}" << endl; //x5
-    cout << " (3): Rare Pack (x10) {500 coins}" << endl; //x15
-    cout << " (4): Mythic Pack (x15) {800 coins}" << endl; //x20
-    cout << " (5): [Menu]" << endl;
+    cout << " (3): Rare Pack (x10) {500 coins}" << endl; //x10
+    cout << " (4): Mythic Pack (x15) {800 coins}" << endl; //x15
+    cout << " (5): [Menu]" << endl << endl;
+    cout << " -> ";
     cin >> X;
     system("clear");
 
@@ -255,7 +257,7 @@ void store(){
         }
         else{
             COINS -= 500;
-            for(int i = 0; i < 15; i++){getHero();} //unlock x15
+            for(int i = 0; i < 10; i++){getHero();} //unlock x15
             store();
         }
     }
@@ -266,7 +268,7 @@ void store(){
         }
         else{
             COINS -= 800;
-            for(int i = 0; i < 20; i++){getHero();} //unlock x15
+            for(int i = 0; i < 15; i++){getHero();} //unlock x15
             store();
         }
     }
@@ -288,7 +290,7 @@ void battle_menu(){
         << battle.at(i).getCoins() << " coins}" << endl << endl;
         good = 0;
     }
-    cout << endl << " (" << battle.size()+1 << "): [Menu]" << endl;
+    cout << endl << " (" << battle.size()+1 << "): [Menu]" << endl << endl << " -> ";
     cin >> Y;
     system("clear");
 
@@ -317,7 +319,7 @@ void fight(Battle b1){
     for(size_t i = 0; i < options.size(); i++){ //prints options
         cout << " (" << (i)+1 << "): " << options.at(i).getName() << endl;
     }
-    cout << " (" << options.size() + 1 << "): [Back]" << endl; //escape option
+    cout << " (" << options.size() + 1 << "): [Back]" << endl << endl << " -> "; //escape option
     cin >> Y;
     system("clear");
     }while(Y > options.size() + 1);
@@ -356,11 +358,11 @@ void fight(Battle b1){
         cout << " Results: VICTORY!" << endl;
         cout << " Coins Earned: " << b1.getCoins() << endl; 
     }
-    cout << endl << " (1): [Back]" << endl;
+    cout << endl << " (1): [Back]" << endl << endl << " -> ";
     cin >> z;
     system("clear");
     updateFile();
-    battle_menu();
+    fight(b1);
 }
 
 void campaign(){
@@ -398,7 +400,7 @@ void camp_go(Campaign cam1, size_t stage){
     for(size_t i = 0; i < options.size(); i++){ //prints options
         cout << " (" << (i)+1 << "): " << options.at(i).getName() << endl;
     }
-    cout << endl << " (" << options.size() + 1 << "): [Back]" << endl; //escape option
+    cout << endl << " (" << options.size() + 1 << "): [Back]" << endl << endl << " -> "; //escape option
     cin >> Y;
     system("clear");
 
@@ -489,11 +491,12 @@ void camp_go(Campaign cam1, size_t stage){
             }
         }
     }
-    cout << endl << " (1): [Back]" << endl;
+    cout << endl << " (1): Retry" << endl << " (2): [Back]" << endl << endl << " -> ";
     cin >> z;
     system("clear");
     updateFile();
-    campaign();
+    if(z == 1){camp_go(cam1, stage);}
+    else{campaign();}
 }
 
 void getHero(){
@@ -568,20 +571,20 @@ void welcome(){
     cout << " - Collect Classic Characters" << endl;
     cout << " - Battle Epic Enemies" << endl;
     cout << " - Level Up Your Roster" << endl;
-    cout << endl << " (1): Next" << endl;
+    cout << endl << " (1): Next" << endl << endl << " -> ";
     cin >> x;
     system("clear");
     cout << "Currently, your roster is empty" << endl;
     cout << "You have been given 100 coins to start your journey" << endl;
     cout << "When you reach the menu, head to the shop" << endl;
     cout << "You can buy a Common Pack to unlock your first character" << endl;
-    cout << endl << " (1): Next" << endl;
+    cout << endl << " (1): Next" << endl << endl << " -> ";
     cin >> x;
     system("clear");
     cout << "Next, head to the Battle Menu, and select your first fight" << endl;
     cout << "Continue to battle, unlock characters, and upgrade your roster" << endl;
     cout << "Good luck!" << endl;
-    cout << endl << "(1): Begin Game" << endl;
+    cout << endl << "(1): Begin Game" << endl << endl << " -> ";
     cin >> x;
     system("clear");
 }
