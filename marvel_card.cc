@@ -373,7 +373,7 @@ void campaign(){
         "- [" << progress.at(i).getFaction() << "] - {Reward: " <<
         progress.at(i).getCoins() << " coins}" << endl << endl;
     }
-    cout << " (" << (STAGE)+1 << "): [Menu]" << endl;
+    cout << " (" << (STAGE)+1 << "): [Menu]" << endl << endl << " -> ";
     cin >> Y;
     system("clear");
     if(Y <= progress.size()){camp_go(progress.at(Y-1), Y);}
