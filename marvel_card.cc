@@ -449,6 +449,11 @@ void camp_go(Campaign cam1, size_t stage){
             COINS += 50;
             progress.push_back(story.at(STAGE));
             STAGE++;
+            if(STAGE == 5){
+                Card card("Luke Cage", "Common", "Defenders", 1, 18, 8, 12, 10, 10);
+                cout << "  Luke Cage Available" << endl;
+                all.push_back(card);
+            }
             if(STAGE == 8){
                 Card card("Kilmonger", "Common", "Wakanda", 1, 15, 18, 14, 13, 2);
                 cout << "  Kilmonger Available" << endl;

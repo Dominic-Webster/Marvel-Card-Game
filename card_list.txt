@@ -16,3 +16,5 @@ Spider-Man| Common | Spiderverse | 1 | 17 | 14 | 13 | 12 | 5
 Shuri| Common | Wakanda | 1 | 6 | 14 | 8 | 19 | 10
 War Machine| Common | S.H.I.E.L.D. | 1 | 15 | 12 | 13 | 16 | 3
 Doctor Strange| Common | Convocation | 1 | 7 | 16 | 18 | 11 | 20
+Jeff The Shark| Uncommon | Awesome | 10 | 18 | 18 | 18 | 18 | 18
+Stan Lee| Uncommon | Awesome | 12 | 20 | 20 | 20 | 20 | 20
