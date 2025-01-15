@@ -1,6 +1,6 @@
 ## MARVEL CARD GAME
 
-### (Version 2.0.1)
+### (Version 2.0.2)
 
 ---
 
@@ -64,6 +64,9 @@ Convocation:
 - Doctor Strange
 - Mordo
 
+Defenders:
+- Luke Cage
+
 Gamma:
 - Hulk
 - She-Hulk
@@ -96,6 +99,15 @@ X-Men:
 ---
 
 ### Update History
+
+#### UPDATE 2.0.2
+01/15/2025
+- Fun Update!
+- Stan Lee and Jeff The Shark added
+- New Campaign Unlock: Luke Cage
+- New Battles added
+
+#### _______________________________________
 
 #### UPDATE 2.0.1
 12/07/2024
